@@ -1,8 +1,11 @@
 #!/usr/bin/env node --experimental-repl-await
+// --inspect
+// --inspect-brk=28189
 
 'use strict';
 const { resolve } = require('path');
 const meow = require('meow');
+const dlv = require('dlv');
 const Scriptwriter = require('../');
 const cli = meow(
 	`
@@ -56,24 +59,20 @@ const cli = meow(
 	}
 );
 
-const config = {
-	browserType: 'chromium',
-	launch: {
-		headless: true,
-		args: [],
-	},
-	context: {},
-	device: null,
-};
-if (cli.flags.config) {
-	const file = require(resolve(cli.flags.config));
-	Object.assign(config, file);
-}
-config.browserType = cli.flags.browser;
-config.launch.headless = cli.flags.headless;
-config.context.bypassCSP = cli.flags.csp;
-config.context.javaScriptEnabled = cli.flags.js;
-config.device = cli.flags.device || config.device;
+const { config, browser, headless, csp, js, device } = cli.flags;
+const file = config ? require(resolve(config)) : {};
+const use = (path, fallback) => dlv(file, path, fallback);
 
-const scriptwriter = new Scriptwriter(config);
+const scriptwriter = new Scriptwriter({
+	browserType: use('browserType', browser),
+	launch: {
+		headless: use('launch.headless', headless),
+		args: use('launch.args', []),
+	},
+	context: {
+		bypassCSP: use('context.bypassCSP', csp),
+		javaScriptEnabled: use('context.javaScriptEnabled', js),
+	},
+	device: use('device', device),
+});
 scriptwriter.init();
