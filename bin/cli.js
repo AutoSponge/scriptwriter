@@ -1,6 +1,4 @@
 #!/usr/bin/env node --experimental-repl-await
-// --inspect
-// --inspect-brk=28189
 
 'use strict';
 const { resolve } = require('path');
