@@ -60,11 +60,43 @@ You can also load a config from a file.
 
 `scriptwriter --config iphonex.json`
 
+### Custom Commands
+
+You can load your own commands. Scriptwriter exposes some helpful utility functions.
+
+- director = [node repl](https://nodejs.org/api/repl.html) instance
+- scriptwriter.code = [prettier](https://prettier.io/).format
+- scriptwriter.color = [kleur](https://www.npmjs.com/package/kleur)
+- scriptwriter.error = [pretty-error](https://www.npmjs.com/package/pretty-error)
+- scriptwriter.escapes = [ansi-escapes](https://www.npmjs.com/package/ansi-escapes)
+
+Example:
+
+```js
+// my-command.js
+scriptwriter.completion = '.louder';
+director.defineCommand('louder', {
+	help: `make something louder`,
+	async action(str) {
+		const { log, color } = scriptwriter;
+		log(color.red(`${str.toUpperCase()}!!`));
+		director.displayPrompt();
+	},
+});
+```
+
+```js
+// in the scriptwriter repl
+> .load my-command.js
+> .louder test
+TEST!!
+```
+
 ### Mac Firewall
 
 On a mac, you may get the firewall popup.
 
-1. Open keychain access. 
+1. Open keychain access.
 1. In the top menu, choose `Keychain Access > Certificate Assistant > Create a Certificate`.
 1. Name it `Playwright`.
 1. Change the `Certificate Type` to `Code Signing`.
