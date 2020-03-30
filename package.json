@@ -46,7 +46,8 @@
 		"kleur": "^3.0.3",
 		"meow": "^6.1.0",
 		"prettier": "^2.0.2",
-		"pretty-error": "^2.1.1"
+		"pretty-error": "^2.1.1",
+		"terminal-link": "^2.1.1"
 	},
 	"devDependencies": {
 		"ava": "^3.5.1",
