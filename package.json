@@ -1,6 +1,6 @@
 {
 	"name": "scriptwriter",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "✍️  An authoring tool for playwrights.",
 	"keywords": [
 		"playwright",
@@ -26,7 +26,7 @@
 		"test:dev": "cross-env NODE_ENV=test ava",
 		"test:ci": "cross-env NODE_ENV=test nyc ava -t",
 		"cover:html": "nyc report --reporter=html",
-		"test": "run-s lint test:ci"		
+		"test": "run-s lint test:ci"
 	},
 	"repository": {
 		"type": "git",
