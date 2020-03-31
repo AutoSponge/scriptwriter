@@ -69,6 +69,7 @@ You can load your own commands. Scriptwriter exposes some helpful utility functi
 - scriptwriter.color = [kleur](https://www.npmjs.com/package/kleur)
 - scriptwriter.error = [pretty-error](https://www.npmjs.com/package/pretty-error)
 - scriptwriter.escapes = [ansi-escapes](https://www.npmjs.com/package/ansi-escapes)
+- scriptwriter.importGlobal = [import-global](https://www.npmjs.com/package/import-global)
 
 Example:
 
