@@ -23,6 +23,7 @@
 		"lint:js": "prettier-eslint --write --single-quote --use-tabs \"**/*.js\"",
 		"lint": "run-p lint:*",
 		"start": "$npm_package_bin_scriptwriter",
+		"test:dev": "cross-env NODE_ENV=test ava",
 		"test": "cross-env NODE_ENV=test nyc ava",
 		"cover": "nyc report --reporter=html"
 	},
