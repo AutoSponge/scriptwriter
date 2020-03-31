@@ -24,8 +24,9 @@
 		"lint": "run-p lint:*",
 		"start": "$npm_package_bin_scriptwriter",
 		"test:dev": "cross-env NODE_ENV=test ava",
-		"test": "cross-env NODE_ENV=test nyc ava",
-		"cover": "nyc report --reporter=html"
+		"test:ci": "cross-env NODE_ENV=test nyc ava -t",
+		"cover:html": "nyc report --reporter=html",
+		"test": "run-s lint test:ci"		
 	},
 	"repository": {
 		"type": "git",
@@ -46,6 +47,7 @@
 		"import-global": "^0.1.0",
 		"kleur": "^3.0.3",
 		"meow": "^6.1.0",
+		"normalize-url": "^5.0.0",
 		"prettier": "^2.0.2",
 		"pretty-error": "^2.1.1",
 		"terminal-link": "^2.1.1"
