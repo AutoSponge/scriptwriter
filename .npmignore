@@ -1,0 +1,11 @@
+# repo
+CNAME
+_config.yml
+# coverate
+.nyc_output
+coverage
+# IDE
+.vscode
+# local only
+docs
+.notes.md

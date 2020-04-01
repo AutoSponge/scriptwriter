@@ -46,7 +46,7 @@ You can use cli flags to set the config `scriptwriter --help`:
 
 You can also load a config from a file.
 
-```
+```json
 // iphonex.json
 {
 	"launch": {
