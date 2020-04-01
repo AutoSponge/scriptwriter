@@ -4,8 +4,8 @@ Learn what [Playwright](https://github.com/microsoft/playwright) can do in each 
 
 ## Installation
 
-![node](https://img.shields.io/node/v/scriptwriter?color=orange)
-![npm](https://img.shields.io/npm/v/playwright?color=blue&label=playwright)
+![node](https://img.shields.io/node/v/scriptwriter?color=important)
+![npm peer dependency version](https://img.shields.io/npm/dependency-version/scriptwriter/peer/playwright)
 
 1. Ensure you have node 10.15.0 or higher.
 1. Install Playwright globally: `npm i -g playwright` (tested with [0.12.1](https://github.com/microsoft/playwright/releases/tag/v0.12.1)).
