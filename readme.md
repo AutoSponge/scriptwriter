@@ -1,8 +1,11 @@
-# ✍️ Scriptwriter
+# ✍️ Scriptwriter ![npm](https://img.shields.io/npm/v/scriptwriter?color=success)
 
 Learn what [Playwright](https://github.com/microsoft/playwright) can do in each of the various browsers it supports. By default, Scriptwriter loads Chromium and creates a [Chrome Devtools Protocol (CDP) client](https://chromedevtools.github.io/devtools-protocol/) for more [repl](https://nodejs.org/api/repl.html) fun!
 
 ## Installation
+
+![node](https://img.shields.io/node/v/scriptwriter?color=orange)
+![npm](https://img.shields.io/npm/v/playwright?color=blue&label=playwright)
 
 1. Ensure you have node 10.15.0 or higher.
 1. Install Playwright globally: `npm i -g playwright` (tested with [0.12.1](https://github.com/microsoft/playwright/releases/tag/v0.12.1)).
