@@ -26,6 +26,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm i -g playwright
-    - run: npm test
+    - run: npm run test:ci
       env:
         CI: true
