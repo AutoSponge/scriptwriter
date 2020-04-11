@@ -28,6 +28,10 @@
 		"cover:html": "nyc report --reporter=html",
 		"test": "run-s lint test:ci"
 	},
+	"directories": {
+		"bin": "./bin",
+		"lib": "./lib"
+	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged",
