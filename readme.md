@@ -113,3 +113,8 @@ On a mac, you may get the firewall popup.
 1. Right click Chromium and select `New Terminal Here`.
 1. In the terminal type `pwd` and copy the path.
 1. Use the following to assign the certificate: `sudo codesign -s Playwright -f <PATH_TO_CHROMIUM> --deep`.
+
+## Similar Projects
+
+- [🐺 QA Wolf](https://www.qawolf.com/)
+- [Try Playwright](https://try.playwright.tech/)
