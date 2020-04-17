@@ -56,7 +56,7 @@
 	},
 	"homepage": "https://github.com/AutoSponge/scriptwriter#readme",
 	"peerDependencies": {
-		"playwright": "^0.12.0"
+		"playwright": ">=0.12.0"
 	},
 	"dependencies": {
 		"ansi-escapes": "^4.3.1",
