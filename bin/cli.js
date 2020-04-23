@@ -17,6 +17,7 @@ const cli = meow(
       --browser, -b          Change browsers (default: chromium)
       --no-js                Disable JavaScript
       --no-csp               Bypass CSP
+      --aom, -a              Launch with Accessibility Object Model (AOM) enabled
     Examples
       $ scriptwriter
       $ scriptwriter --no-headless
@@ -53,15 +54,19 @@ const cli = meow(
 				type: 'boolean',
 				default: false,
 			},
+			aom: {
+				type: 'boolean',
+				default: false,
+				alias: 'a',
+			},
 		},
 	}
 );
 
-const { config, browser, headless, csp, js, device } = cli.flags;
+const { config, browser, headless, csp, js, device, aom } = cli.flags;
 const file = config ? require(resolve(config)) : {};
 const use = (path, fallback) => dlv(file, path, fallback);
-
-const scriptwriter = new Scriptwriter({
+const normalizedConfig = {
 	browserType: use('browserType', browser),
 	launch: {
 		headless: use('launch.headless', headless),
@@ -72,5 +77,10 @@ const scriptwriter = new Scriptwriter({
 		javaScriptEnabled: use('context.javaScriptEnabled', js),
 	},
 	device: use('device', device),
-});
+};
+const aomFlag = '--enable-blink-features=AccessibilityObjectModel';
+if (aom && !normalizedConfig.launch.args.includes(aomFlag)) {
+	normalizedConfig.launch.args.push(aomFlag);
+}
+const scriptwriter = new Scriptwriter(normalizedConfig);
 scriptwriter.init();
