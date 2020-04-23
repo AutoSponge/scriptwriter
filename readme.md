@@ -36,6 +36,7 @@ You can use cli flags to set the config `scriptwriter --help`:
     --browser, -b          Change browsers (default: chromium)
     --no-js                Disable JavaScript
     --no-csp               Bypass CSP
+    --aom, -a              Launch with Accessibility Object Model (AOM) enabled
   Examples
     $ scriptwriter
     $ scriptwriter --no-headless
