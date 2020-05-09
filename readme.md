@@ -32,11 +32,12 @@ You can use cli flags to set the config `scriptwriter --help`:
   Options
     --no-headless, --no-h  Run as headless=false
     --device, -d           Load a device profile from Playwright
-    --config, -c           Pass a config file to scriptwriter
+    --config, -c           Pass a config file to Scriptwriter
     --browser, -b          Change browsers (default: chromium)
     --no-js                Disable JavaScript
     --no-csp               Bypass CSP
     --aom, -a              Launch with Accessibility Object Model (AOM) enabled
+    --user, -u             Launch with a Persistent Context
   Examples
     $ scriptwriter
     $ scriptwriter --no-headless

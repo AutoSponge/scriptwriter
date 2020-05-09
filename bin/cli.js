@@ -12,12 +12,13 @@ const cli = meow(
                      [--browser <browser>] [--no-js] [--no-csp]
     Options
       --no-headless, --no-h  Run as headless=false
-      --device, -d           Load a device profile from playwright
-      --config, -c           Pass a config file to scriptwriter
+      --device, -d           Load a device profile from Playwright
+      --config, -c           Pass a config file to Scriptwriter
       --browser, -b          Change browsers (default: chromium)
       --no-js                Disable JavaScript
       --no-csp               Bypass CSP
       --aom, -a              Launch with Accessibility Object Model (AOM) enabled
+      --user, -u             Launch with a Persistent Context
     Examples
       $ scriptwriter
       $ scriptwriter --no-headless
@@ -59,15 +60,21 @@ const cli = meow(
 				default: false,
 				alias: 'a',
 			},
+			user: {
+				type: 'string',
+				default: '',
+				alias: 'u',
+			},
 		},
 	}
 );
 
-const { config, browser, headless, csp, js, device, aom } = cli.flags;
+const { config, browser, headless, csp, js, device, aom, user } = cli.flags;
 const file = config ? require(resolve(config)) : {};
 const use = (path, fallback) => dlv(file, path, fallback);
 const normalizedConfig = {
 	browserType: use('browserType', browser),
+	userDataDir: use('userDataDir', user),
 	launch: {
 		headless: use('launch.headless', headless),
 		args: use('launch.args', []),
