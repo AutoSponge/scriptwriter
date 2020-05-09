@@ -1,4 +1,4 @@
-# ✍️ Scriptwriter [![npm](https://img.shields.io/npm/v/scriptwriter?color=success)](https://www.npmjs.com/package/scriptwriter) ![GitHub last commit](https://img.shields.io/github/last-commit/autosponge/scriptwriter)
+# ✍️ Scriptwriter [![npm](https://img.shields.io/npm/v/scriptwriter?color=success)](https://www.npmjs.com/package/scriptwriter) [![GitHub last commit](https://img.shields.io/github/last-commit/autosponge/scriptwriter)](https://github.com/AutoSponge/scriptwriter)
 
 Learn what [Playwright](https://github.com/microsoft/playwright) can do in each of the various browsers it supports. By default, Scriptwriter loads Chromium and creates a [Chrome Devtools Protocol (CDP) client](https://chromedevtools.github.io/devtools-protocol/) for more [repl](https://nodejs.org/api/repl.html) fun!
 
