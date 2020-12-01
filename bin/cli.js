@@ -53,7 +53,7 @@ const cli = meow(
 			},
 			csp: {
 				type: 'boolean',
-				default: false,
+				default: true,
 			},
 			aom: {
 				type: 'boolean',
@@ -70,6 +70,7 @@ const cli = meow(
 );
 
 const { config, browser, headless, csp, js, device, aom, user } = cli.flags;
+console.log(cli.flags);
 const file = config ? require(resolve(config)) : {};
 const use = (path, fallback) => dlv(file, path, fallback);
 const normalizedConfig = {
@@ -78,9 +79,9 @@ const normalizedConfig = {
 	launch: {
 		headless: use('launch.headless', headless),
 		args: use('launch.args', []),
+		bypassCSP: use('launch.csp', !csp),
 	},
 	context: {
-		bypassCSP: use('context.bypassCSP', csp),
 		javaScriptEnabled: use('context.javaScriptEnabled', js),
 	},
 	device: use('device', device),
