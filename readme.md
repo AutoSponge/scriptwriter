@@ -22,6 +22,32 @@ Learn what [Playwright](https://github.com/microsoft/playwright) can do in each 
 1. Pressing `Tab` twice will display autocomplete help.
 1. Save and load your repl sessions!
 
+## Dump Command
+
+Scriptwriter now supports the `.dump` command to serialize and save objects to disk in multiple formats.
+
+Usage:
+
+```text
+.dump <object> [type] [depth]
+```
+
+Examples:
+
+```text
+.dump page json
+.dump browser ansi 2
+.dump myData txt 3
+```
+
+Supported output types:
+
+- `txt` (default): saves a plain-text `util.inspect` dump.
+- `json`: saves `JSON.stringify(obj, null, '  ')` for readable JSON.
+- `ansi`: saves an ANSI-colored `util.inspect` dump for terminal-style output.
+
+For the `ansi` output type, use a suitable editor viewer such as the VS Code extension `ANSI Colors` to get proper syntax highlighting for `.ansi` files.
+
 ## Config
 
 You can use cli flags to set the config `scriptwriter --help`:
