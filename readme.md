@@ -7,10 +7,10 @@ Learn what [Playwright](https://github.com/microsoft/playwright) can do in each 
 ![node](https://img.shields.io/node/v/scriptwriter?color=important)
 [![npm peer dependency version](https://img.shields.io/npm/dependency-version/scriptwriter/peer/playwright)](https://github.com/microsoft/playwright/)
 
-1. Ensure you have node 10.15.0 or higher.
-1. Install Playwright globally: `npm i -g playwright` (tested with [1.5.2](https://github.com/microsoft/playwright/releases/tag/v1.5.2)).
+1. Ensure you have Node.js 24.14.0 or higher.
+1. Install Playwright as a peer dependency: `npm i -g playwright` for global installs, or `npm install playwright` when using Scriptwriter locally. Scriptwriter requires `playwright@^1.60.0`.
 1. Install Scriptwriter: `npm i -g scriptwriter`.
-1. (some tools that manage multiple versions of node may require you to `npm link` playwright for scriptwriter's global-import to work).
+1. (some tools that manage multiple versions of Node may require you to `npm link` playwright for scriptwriter's global import to work).
 1. Or clone this repo, install, and use `npm link` or `npm start`.
 
 ## Get Started
