@@ -5116,10 +5116,7 @@
 			"integrity": "sha512-5eNtXOs3tbfxXOj04tjjseeWkRWaoCjdEI+96DgwzZoe6c9juL49pXlzAFTI72aWC9Y8p7168g6XIKjh7k6pyQ==",
 			"dev": true,
 			"license": "MIT",
-			"workspaces": [
-				"docs",
-				"benchmarks"
-			]
+			"workspaces": ["docs", "benchmarks"]
 		},
 		"node_modules/escalade": {
 			"version": "3.2.0",
@@ -6129,9 +6126,7 @@
 			"hasInstallScript": true,
 			"license": "MIT",
 			"optional": true,
-			"os": [
-				"darwin"
-			],
+			"os": ["darwin"],
 			"engines": {
 				"node": "^8.16.0 || ^10.6.0 || >=11.0.0"
 			}
@@ -11516,9 +11511,7 @@
 			"hasInstallScript": true,
 			"license": "MIT",
 			"optional": true,
-			"os": [
-				"darwin"
-			],
+			"os": ["darwin"],
 			"peer": true,
 			"engines": {
 				"node": "^8.16.0 || ^10.6.0 || >=11.0.0"
