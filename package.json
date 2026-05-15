@@ -12,7 +12,7 @@
 		"Puppeteer"
 	],
 	"engines": {
-		"node": ">=24.15.0"
+		"node": ">=24.14.0"
 	},
 	"main": "./index.js",
 	"bin": {
