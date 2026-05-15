@@ -1,10 +1,11 @@
-#!/usr/bin/env node --experimental-repl-await
+#!/usr/bin/env node
 
-'use strict';
-const { resolve } = require('path');
-const meow = require('meow');
-const dlv = require('dlv');
-const Scriptwriter = require('../');
+import { resolve } from 'path';
+import { createRequire } from 'module';
+import meow from 'meow';
+import dlv from 'dlv';
+import Scriptwriter from '../index.js';
+const require = createRequire(import.meta.url);
 const cli = meow(
 	`
     Usage
@@ -28,24 +29,25 @@ const cli = meow(
       $ scriptwriter --no-js --b firefox
 `,
 	{
+		importMeta: import.meta,
 		flags: {
 			headless: {
 				type: 'boolean',
 				default: true,
-				alias: 'h',
+				shortFlag: 'h',
 			},
 			device: {
 				type: 'string',
-				alias: 'd',
+				shortFlag: 'd',
 			},
 			config: {
 				type: 'string',
-				alias: 'c',
+				shortFlag: 'c',
 			},
 			browser: {
 				type: 'string',
 				default: 'chromium',
-				alias: 'b',
+				shortFlag: 'b',
 			},
 			js: {
 				type: 'boolean',
@@ -58,15 +60,15 @@ const cli = meow(
 			aom: {
 				type: 'boolean',
 				default: false,
-				alias: 'a',
+				shortFlag: 'a',
 			},
 			user: {
 				type: 'string',
 				default: '',
-				alias: 'u',
+				shortFlag: 'u',
 			},
 		},
-	}
+	},
 );
 
 const { config, browser, headless, csp, js, device, aom, user } = cli.flags;
