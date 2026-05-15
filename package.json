@@ -1,7 +1,6 @@
 {
 	"name": "scriptwriter",
 	"version": "0.1.1",
-	"type": "module",
 	"description": "✍️  An authoring tool for playwrights.",
 	"keywords": [
 		"playwright",
@@ -11,12 +10,24 @@
 		"Chromium",
 		"Puppeteer"
 	],
-	"engines": {
-		"node": ">=24.14.0"
+	"homepage": "https://github.com/AutoSponge/scriptwriter#readme",
+	"bugs": {
+		"url": "https://github.com/AutoSponge/scriptwriter/issues"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AutoSponge/scriptwriter.git"
+	},
+	"license": "MIT",
+	"author": "Paul Grenier <pgrenier@gmail.com>",
+	"type": "module",
 	"main": "./index.js",
 	"bin": {
-		"scriptwriter": "./bin/cli.js"
+		"scriptwriter": "bin/cli.js"
+	},
+	"directories": {
+		"doc": "docs",
+		"lib": "lib"
 	},
 	"scripts": {
 		"docs": "documentation build --shallow lib/** -f html -o docs",
@@ -31,36 +42,6 @@
 		"version": "run-s lint docs",
 		"release": "np",
 		"prepare": "husky"
-	},
-	"directories": {
-		"bin": "./bin",
-		"lib": "./lib"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged",
-			"commit-msg": "commitlint -e $GIT_PARAMS"
-		}
-	},
-	"lint-staged": {
-		"**/*.{js}": "npm run lint:docs",
-		"**/*.{js,json,md}": "npm run lint:code"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/AutoSponge/scriptwriter.git"
-	},
-	"author": {
-		"name": "Paul Grenier",
-		"email": "pgrenier@gmail.com"
-	},
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/AutoSponge/scriptwriter/issues"
-	},
-	"homepage": "https://github.com/AutoSponge/scriptwriter#readme",
-	"peerDependencies": {
-		"playwright": "^1.60.0"
 	},
 	"dependencies": {
 		"@prettier/sync": "^0.6.1",
@@ -88,5 +69,21 @@
 		"prettier-eslint": "^16.4.2",
 		"prettier-eslint-cli": "^8.0.1",
 		"tempfile": "^6.0.1"
+	},
+	"peerDependencies": {
+		"playwright": "^1.60.0"
+	},
+	"engines": {
+		"node": ">=24.14.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -e $GIT_PARAMS"
+		}
+	},
+	"lint-staged": {
+		"**/*.{js}": "npm run lint:docs",
+		"**/*.{js,json,md}": "npm run lint:code"
 	}
 }
