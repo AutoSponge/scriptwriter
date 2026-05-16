@@ -5,6 +5,7 @@ import { createRequire } from 'module';
 import meow from 'meow';
 import dlv from 'dlv';
 import Scriptwriter from '../index.js';
+import { mergeConfig } from '../lib/config.js';
 const require = createRequire(import.meta.url);
 const cli = meow(
 	`
@@ -75,19 +76,22 @@ const { config, browser, headless, csp, js, device, aom, user } = cli.flags;
 console.log(cli.flags);
 const file = config ? require(resolve(config)) : {};
 const use = (path, fallback) => dlv(file, path, fallback);
-const normalizedConfig = {
-	browserType: use('browserType', browser),
-	userDataDir: use('userDataDir', user),
-	launch: {
-		headless: use('launch.headless', headless),
-		args: use('launch.args', []),
-		bypassCSP: use('launch.csp', !csp),
+const normalizedConfig = mergeConfig(
+	{
+		browserType: use('browserType', browser),
+		userDataDir: use('userDataDir', user),
+		launch: {
+			headless: use('launch.headless', headless),
+			args: use('launch.args', []),
+			bypassCSP: use('launch.csp', !csp),
+		},
+		context: {
+			javaScriptEnabled: use('context.javaScriptEnabled', js),
+		},
+		device: use('device', device),
 	},
-	context: {
-		javaScriptEnabled: use('context.javaScriptEnabled', js),
-	},
-	device: use('device', device),
-};
+	file,
+);
 const aomFlag = '--enable-blink-features=AccessibilityObjectModel';
 if (aom && !normalizedConfig.launch.args.includes(aomFlag)) {
 	normalizedConfig.launch.args.push(aomFlag);

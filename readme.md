@@ -8,10 +8,26 @@ Learn what [Playwright](https://github.com/microsoft/playwright) can do in each 
 [![npm peer dependency version](https://img.shields.io/npm/dependency-version/scriptwriter/peer/playwright)](https://github.com/microsoft/playwright/)
 
 1. Ensure you have Node.js 24.14.0 or higher.
-1. Install Playwright as a peer dependency: `npm i -g playwright` for global installs, or `npm install playwright` when using Scriptwriter locally. Scriptwriter requires `playwright@^1.60.0`.
+1. Install Playwright as a peer dependency: Scriptwriter requires `playwright@^1.60.0`.
+   - For global installs: `npm i -g playwright`
+   - For local project: `npm install playwright`
+   - In a monorepo: install in the project's `node_modules` or a parent workspace
 1. Install Scriptwriter: `npm i -g scriptwriter`.
-1. (some tools that manage multiple versions of Node may require you to `npm link` playwright for scriptwriter's global import to work).
 1. Or clone this repo, install, and use `npm link` or `npm start`.
+
+### Playwright Resolution
+
+Scriptwriter uses a "nearest" resolution strategy to find the installed Playwright package:
+
+1. **Current working directory** — Searches `node_modules/playwright` in the directory where `scriptwriter` is run
+2. **Parent directories** — Traverses up the directory tree looking for installed Playwright
+3. **Installation location** — Falls back to Playwright installed alongside Scriptwriter
+
+This means you can:
+
+- Run Scriptwriter from a project with its own Playwright installation
+- Use a global Playwright with `scriptwriter -g`
+- Use Playwright from any parent directory in a monorepo or nested project structure
 
 ## Get Started
 
@@ -76,7 +92,7 @@ You can use cli flags to set the config `scriptwriter --help`:
 
 ### Config File
 
-You can also load a config from a file.
+You can also load a config from a file. File values are deep-merged into the runtime config so nested `launch` and `context` options work as expected.
 
 ```json
 // iphonex.json
