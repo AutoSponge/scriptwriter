@@ -1,0 +1,18 @@
+{
+  "git": {
+    "requireBranch": "main",
+    "requireCleanWorkingDir": true,
+    "requireUpstream": true
+  },
+  "npm": {
+    "publish": true
+  },
+  "hooks": {
+    "before:init": [
+      "npm run test"
+    ],
+    "after:bump": [
+      "npm run version"
+    ]
+  }
+}
