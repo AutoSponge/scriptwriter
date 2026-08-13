@@ -92,7 +92,7 @@ const normalizedConfig = mergeConfig(
 	},
 	file,
 );
-const aomFlag = '--enable-blink-features=AccessibilityObjectModel';
+const aomFlag = '--enable-experimental-web-platform-features';
 if (aom && !normalizedConfig.launch.args.includes(aomFlag)) {
 	normalizedConfig.launch.args.push(aomFlag);
 }
